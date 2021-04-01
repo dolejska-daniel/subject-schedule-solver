@@ -10,7 +10,7 @@
 
 main:-
      % load CLI args
-     arg_value("--load-from", "example/subjects.json", SubjectsFile),
+     arg_value("--load-from", "examples/subjects.json", SubjectsFile),
      arg_value("--save-to", none, SolutionsFile),
      % load subjects from file
      load_subjects(SubjectsFile, _),

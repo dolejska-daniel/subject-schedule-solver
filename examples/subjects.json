@@ -1,0 +1,10 @@
+[
+    {"name":"IZU", "day":"Monday", "from":"10:00", "to":"11:50"},
+    {"name":"IZU", "day":"Tuesday", "from":"10:00", "to":"11:50"},
+    {"name":"IDA", "day":"Monday", "from":"11:00", "to":"12:50"},
+    {"name":"IDA", "day":"Tuesday", "from":"08:00", "to":"10:50"},
+    {"name":"IDA", "day":"Thursday", "from":"08:00", "to":"10:50"},
+    {"name":"ISA", "day":"Tuesday", "from":"11:00", "to":"13:50"},
+    {"name":"ISA", "day":"Thursday", "from":"09:00", "to":"12:50"},
+    {"name":"ISA", "day":"Thursday", "from":"14:00", "to":"16:50"}
+]
