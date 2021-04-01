@@ -20,4 +20,5 @@ main:-
      findall(Solution, solution(Solution), Solutions),
      debug(general, "Found following solutions: ~w.", [Solutions]),
      save_solutions("solutions.json", Solutions),
-     print_solutions(Solutions).
+     print_solutions(Solutions),
+     halt.
