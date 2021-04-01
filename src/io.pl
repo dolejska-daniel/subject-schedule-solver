@@ -4,6 +4,7 @@
 :- module(io, [
     %
     load_subjects/2,
+    load_subjects_from_file/2,
     parse_subjects/2,
     %
     print_solutions/1,
@@ -27,17 +28,26 @@
 %===========================================================================dd==
 
 /**
- * load_subjects(+File:string, -Subjects:list)
+ * load_subjects_from_file(+File:string, -Subjects:list)
  * 
  * Loads subjects from specified File.
  */
-load_subjects(File, Subjects):-
+load_subjects_from_file(File, Subjects):-
     % open output file
     open(File, read, FileStream, [encoding(utf8)]),
-    % write JSON objects to the opened file
-    read_data_json(FileStream, JsonSubjects, [value_string_as(atom)]),
+    % load subjects from the file stream
+    load_subjects(FileStream, Subjects),
     % flush and close the stream
-    close(FileStream),
+    close(FileStream).
+
+/**
+ * load_subjects(+Stream, -Subjects:list)
+ * 
+ * Loads subjects from specified Stream.
+ */
+load_subjects(Stream, Subjects):-
+    % write JSON objects to the opened file
+    read_data_json(Stream, JsonSubjects, [value_string_as(atom)]),
     debug(general, "Subjects loaded from JSON: ~w.", [JsonSubjects]),
     % create internal representations of the subjects
     (

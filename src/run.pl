@@ -10,10 +10,10 @@
 
 main:-
      % load CLI args
-     arg_value("--load-from", "examples/subjects.json", SubjectsFile),
+     arg_value("--load-from", none, SubjectsFile),
      arg_value("--save-to", none, SolutionsFile),
      % load subjects from file
-     load_subjects(SubjectsFile, _),
+     input(SubjectsFile, _),
      % generate all possible solutions
      findall(Solution, solution(Solution), Solutions),
      debug(general, "Found following solutions: ~w.", [Solutions]),
@@ -21,6 +21,20 @@ main:-
      output(SolutionsFile, Solutions),
      % exit the program
      halt.
+
+%-------------------------------------------------------dd--
+%   Input related definitions
+%-------------------------------------------------------dd--
+
+input(none, Subjects):-
+     load_subjects(current_input, Subjects).
+
+input(File, Subjects):-
+     load_subjects_from_file(File, Subjects).
+
+%-------------------------------------------------------dd--
+%   Output related definitions
+%-------------------------------------------------------dd--
 
 output(none, Solutions):-
      print_solutions(Solutions), !.

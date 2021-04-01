@@ -6,7 +6,12 @@ _TBD_
 
 ## Build
 ```shell
-swipl --goal=main --stand_alone=true -o subject-schedule-solver -c src/run.pl
+make
+```
+
+What is done by make:
+```shell
+swipl --goal=main --stand_alone=true -o build/subject-schedule-solver -c src/run.pl
 ```
 
 ## Downloading
