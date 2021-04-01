@@ -14,6 +14,7 @@
     earlier/2,
     later/2,
     time_to_string/2,
+    time_from_atom/2,
     %
     interval/2,
     interval_from/2,
@@ -32,7 +33,8 @@
     subject_options/2,
     subject_is_earlier_without_overlap/2,
     subject_is_later_without_overlap/2,
-    subject_to_json/2
+    subject_to_json/2,
+    subject_from_json/2
 ]).
 
 % Load libraries.
@@ -84,7 +86,7 @@ earlier(Time1, Time2):-
     Minutes1 < Minutes2.
 
 /**
- * earlier(+Time1:time, +Time2:time)
+ * later(+Time1:time, +Time2:time)
  * 
  * Passes when Time1 occured later than Time2 (e.g., time(12, 00) > time(11, 00), time(22, 00) > time(21, 59)).
  */
@@ -98,13 +100,29 @@ later(Time1, Time2):-
 %-------------------------------------------------------dd--
 
 /**
- * earlier(+Time:time, -StringTime:string)
+ * time_to_string(+Time:time, -StringTime:string)
  * 
  * Creates matching string representation of Time in StringTime.
  */
 time_to_string(time(Hour, Minute), StringTime):-
     format(atom(FormattedStringTime), "~|~`0t~w~2|:~|~`0t~w~5|", [Hour, Minute]),
     term_string(FormattedStringTime, StringTime, [quoted(false)]).
+
+/**
+ * time_from_atom(+AtomTime:atom, -Time:time)
+ * 
+ * Creates time functor from AtomTime in Time.
+ */
+time_from_atom(AtomTime, time(Hour, Minute)):-
+    % split string with "="
+    sub_atom(AtomTime, Before, _, After, ":"), !,
+    % unify prefix to argument name
+    sub_atom(AtomTime, 0, Before, _, AtomHour),
+    % unify suffix to argument value
+    sub_atom(AtomTime, _, After, 0, AtomMinute),
+    % convert atoms to integers
+    atom_number(AtomHour, Hour),
+    atom_number(AtomMinute, Minute).
 
 
 %===========================================================================dd==
@@ -125,7 +143,7 @@ interval_to(interval(_, To), To).
 %-------------------------------------------------------dd--
 
 /**
- * earlier(+Interval1:interval, +Interval2:interval)
+ * earlier_no_overlap(+Interval1:interval, +Interval2:interval)
  * 
  * Passes when Interval1 occurs entirely before Interval2 (Interval1.To < Interval2.From).
  */
@@ -135,7 +153,7 @@ earlier_no_overlap(Interval1, Interval2):-
     earlier(To1, From2).
 
 /**
- * earlier(+Interval1:interval, +Interval2:interval)
+ * later_no_overlap(+Interval1:interval, +Interval2:interval)
  * 
  * Passes when Interval1 occurs entirely after Interval2 (Interval1.From > Interval2.To).
  */
@@ -214,7 +232,7 @@ subject_is_later_without_overlap(Subject1, Subject2):-
 :- json_object subject_json(name:string, day:string, from:string, to:string).
 
 /**
- * earlier(+Subject:subject, -JsonSubject:json_object)
+ * subject_to_json(+Subject:subject, -JsonSubject:json_object)
  * 
  * Creates matching JSON object representation of Subject in JsonSubject.
  */
@@ -224,3 +242,15 @@ subject_to_json(subject(Name, Day, interval(From, To)), JsonSubject):-
     time_to_string(From, FromString),
     time_to_string(To, ToString),
     prolog_to_json(subject_json(NameString, DayString, FromString, ToString), JsonSubject).
+
+/**
+ * subject_from_json(+DictSubject:dict, -Subject:subject)
+ * 
+ * Creates matching subject functor from dict object in DictSubject to Subject.
+ */
+subject_from_json(DictSubject, Subject):-
+    time_from_atom(DictSubject.from, From),
+    time_from_atom(DictSubject.to, To),
+    Subject =.. [subject, DictSubject.name, DictSubject.day, interval(From, To)],
+    assertz(Subject),
+    debug(general, "Loaded subject: ~w.", [Subject]).
