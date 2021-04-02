@@ -18,6 +18,7 @@
  */
 arg_value(ArgName, Default, ArgValue):-
     current_prolog_flag(argv, Args),
+    debug(general, "Looking for argument ~w in ~w.", [ArgName, Args]),
     arg_value(ArgName, Args, Default, ArgValue).
 
 arg_value(ArgName, [Arg|Args], Default, Value):-

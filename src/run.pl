@@ -12,8 +12,12 @@ main:-
      % load CLI args
      arg_value("--load-from", none, SubjectsFile),
      arg_value("--save-to", none, SolutionsFile),
-     % load subjects from file
-     input(SubjectsFile, _),
+     (
+          % load subjects from file
+          input(SubjectsFile, _);
+          % output empty solution list and stop the application on input fail
+          output(SolutionsFile, []), halt
+     ),
      % generate all possible solutions
      findall(Solution, solution(Solution), Solutions),
      debug(general, "Found following solutions: ~w.", [Solutions]),
@@ -27,7 +31,7 @@ main:-
 %-------------------------------------------------------dd--
 
 input(none, Subjects):-
-     load_subjects(current_input, Subjects).
+     !, load_subjects(current_input, Subjects).
 
 input(File, Subjects):-
      load_subjects_from_file(File, Subjects).
@@ -37,7 +41,7 @@ input(File, Subjects):-
 %-------------------------------------------------------dd--
 
 output(none, Solutions):-
-     print_solutions(Solutions), !.
+     !, print_solutions(Solutions).
 
 output(File, print_solutions(Solutions)):-
      save_solutions(File, Solutions).

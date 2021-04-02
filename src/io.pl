@@ -52,7 +52,7 @@ load_subjects(Stream, Subjects):-
     % create internal representations of the subjects
     (
         parse_subjects(JsonSubjects, Subjects);
-        print("Failed to load subjects from JSON file.")
+        write_term(user_error, "Failed to load subjects from JSON file.", [quoted(false)]), fail
     ),
     !,
     debug(general, "Parsed subjects: ~w.", [Subjects]).
