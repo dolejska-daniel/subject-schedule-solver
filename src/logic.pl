@@ -42,20 +42,20 @@ not_overlapping(Subject1, Subject2):-
     % there is a different subject on any day
     not_same(Subject1, Subject2),
     % starting at a earlier time
-    subject_is_earlier_without_overlap(Subject1, Subject2).
+    subject_is_earlier_without_overlap(Subject1, Subject2), !.
 
 not_overlapping(Subject1, Subject2):-
     % there is a different subject on any day
     not_same(Subject1, Subject2),
     % starting at a later time
-    subject_is_later_without_overlap(Subject1, Subject2).
+    subject_is_later_without_overlap(Subject1, Subject2), !.
 
 not_overlapping(Subject1, Subject2):-
     % there is a different subject
     not_same(Subject1, Subject2),
     % on a different day
     subject_day(Subject1, Day1), subject_day(Subject2, Day2),
-    Day1 \= Day2.
+    Day1 \= Day2, !.
 
 /**
  * not_overlapping_with_any(+Subject:subject, +Subjects:list)
@@ -88,10 +88,12 @@ not_overlapping_with_any(_, []).
 register(Subject):-
     % there are other registered subjects
     setof(RegisteredSubject, registered(RegisteredSubject), RegisteredSubjects),
+    debug(register, "Currently registered ~w.", [RegisteredSubjects]),
     % these two subjects are not overlapping
     not_overlapping_with_any(Subject, RegisteredSubjects),
     % iff that's true then register this subject too
-    assertz(registered(Subject)).
+    assertz(registered(Subject)),
+    debug(register, "Just registered ~w.", [Subject]).
 
 /**
  * Passes when there is no other registered subject yet.

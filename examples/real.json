@@ -1,0 +1,236 @@
+[
+    {
+        "name": "IMA1_EXC",
+        "day": "Wednesday",
+        "from": "10:00",
+        "to": "11:50"
+    },
+    {
+        "name": "IMA1_EXC",
+        "day": "Monday",
+        "from": "08:00",
+        "to": "09:50"
+    },
+    {
+        "name": "IMA1_EXC",
+        "day": "Wednesday",
+        "from": "14:00",
+        "to": "15:50"
+    },
+    {
+        "name": "IMA1_EXC",
+        "day": "Monday",
+        "from": "16:00",
+        "to": "17:50"
+    },
+    {
+        "name": "IMA2_EXC",
+        "day": "Monday",
+        "from": "14:00",
+        "to": "15:50"
+    },
+    {
+        "name": "IMA1_LECT",
+        "day": "Tuesday",
+        "from": "13:00",
+        "to": "14:50"
+    },
+    {
+        "name": "IMA2_EXC",
+        "day": "Wednesday",
+        "from": "15:00",
+        "to": "16:50"
+    },
+    {
+        "name": "IMA1_EXC",
+        "day": "Monday",
+        "from": "11:00",
+        "to": "12:50"
+    },
+    {
+        "name": "IUS_EXC",
+        "day": "Tuesday",
+        "from": "16:00",
+        "to": "17:50"
+    },
+    {
+        "name": "IMA1_EXC",
+        "day": "Thursday",
+        "from": "08:00",
+        "to": "09:50"
+    },
+    {
+        "name": "IMA2_EXC",
+        "day": "Tuesday",
+        "from": "10:00",
+        "to": "11:50"
+    },
+    {
+        "name": "IUS_LECT",
+        "day": "Friday",
+        "from": "10:00",
+        "to": "12:50"
+    },
+    {
+        "name": "IMA2_LECT",
+        "day": "Monday",
+        "from": "09:00",
+        "to": "10:50"
+    },
+    {
+        "name": "IUS_EXC",
+        "day": "Friday",
+        "from": "14:00",
+        "to": "15:50"
+    },
+    {
+        "name": "IUS_EXC",
+        "day": "Friday",
+        "from": "15:00",
+        "to": "16:50"
+    },
+    {
+        "name": "IMA1_EXC",
+        "day": "Thursday",
+        "from": "16:00",
+        "to": "17:50"
+    },
+    {
+        "name": "IMA1_EXC",
+        "day": "Monday",
+        "from": "10:00",
+        "to": "11:50"
+    },
+    {
+        "name": "IUS_EXC",
+        "day": "Thursday",
+        "from": "18:00",
+        "to": "19:50"
+    },
+    {
+        "name": "IMA1_LECT",
+        "day": "Monday",
+        "from": "09:00",
+        "to": "10:50"
+    },
+    {
+        "name": "IMA1_EXC",
+        "day": "Tuesday",
+        "from": "15:00",
+        "to": "16:50"
+    },
+    {
+        "name": "IMA2_EXC",
+        "day": "Wednesday",
+        "from": "13:00",
+        "to": "14:50"
+    },
+    {
+        "name": "IMA2_EXC",
+        "day": "Monday",
+        "from": "09:00",
+        "to": "10:50"
+    },
+    {
+        "name": "IMA1_EXC",
+        "day": "Wednesday",
+        "from": "16:00",
+        "to": "17:50"
+    },
+    {
+        "name": "IMA2_LECT",
+        "day": "Monday",
+        "from": "11:00",
+        "to": "12:50"
+    },
+    {
+        "name": "IUS_EXC",
+        "day": "Wednesday",
+        "from": "18:00",
+        "to": "19:50"
+    },
+    {
+        "name": "IUS_EXC",
+        "day": "Thursday",
+        "from": "16:00",
+        "to": "17:50"
+    },
+    {
+        "name": "IMA2_EXC",
+        "day": "Monday",
+        "from": "12:00",
+        "to": "13:50"
+    },
+    {
+        "name": "IUS_LECT",
+        "day": "Monday",
+        "from": "13:00",
+        "to": "15:50"
+    },
+    {
+        "name": "IMA2_EXC",
+        "day": "Tuesday",
+        "from": "08:00",
+        "to": "09:50"
+    },
+    {
+        "name": "IUS_EXC",
+        "day": "Monday",
+        "from": "18:00",
+        "to": "19:50"
+    },
+    {
+        "name": "IMA1_EXC",
+        "day": "Tuesday",
+        "from": "13:00",
+        "to": "14:50"
+    },
+    {
+        "name": "IUS_EXC",
+        "day": "Wednesday",
+        "from": "08:00",
+        "to": "09:50"
+    },
+    {
+        "name": "IMA1_EXC",
+        "day": "Tuesday",
+        "from": "12:00",
+        "to": "13:50"
+    },
+    {
+        "name": "IUS_EXC",
+        "day": "Tuesday",
+        "from": "18:00",
+        "to": "19:50"
+    },
+    {
+        "name": "IMA2_EXC",
+        "day": "Wednesday",
+        "from": "17:00",
+        "to": "18:50"
+    },
+    {
+        "name": "IUS_EXC",
+        "day": "Thursday",
+        "from": "12:00",
+        "to": "13:50"
+    },
+    {
+        "name": "IMA1_EXC",
+        "day": "Thursday",
+        "from": "10:00",
+        "to": "11:50"
+    },
+    {
+        "name": "IMA1_EXC",
+        "day": "Thursday",
+        "from": "14:00",
+        "to": "15:50"
+    },
+    {
+        "name": "IUS_EXC",
+        "day": "Friday",
+        "from": "12:00",
+        "to": "13:50"
+    }
+]
